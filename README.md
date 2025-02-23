@@ -1,6 +1,6 @@
 # CyberGuard Inc. Cybersecurity Dashboard
 
-A modern, full-stack cybersecurity dashboard showcasing real-time vulnerability tracking for "CyberGuard Inc."—a fictional security firm. Built to demonstrate advanced front-end and back-end skills, this project features dynamic data visualizations, responsive design, and a polished UI with dark mode support.
+A modern, full-stack cybersecurity dashboard showcasing real-time vulnerability tracking for "CyberGuard Inc."—a fictional security firm. Built to demonstrate front-end and some basic back-end skills, this project features dynamic data visualizations, responsive design, and a polished UI with dark mode support.
 
 **[Live Demo](https://the-dashboard-of-security-kappa.vercel.app/)**
 
@@ -38,4 +38,3 @@ A modern, full-stack cybersecurity dashboard showcasing real-time vulnerability 
    cd the-dashboard-of-security
 2. Run `npm install`
 3. Run `npm run dev` and view at http://localhost:3000/
-  
