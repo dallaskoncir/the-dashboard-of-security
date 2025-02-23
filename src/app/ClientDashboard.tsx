@@ -18,16 +18,25 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
 
-export default function ClientDashboard() { // Remove initialVulns prop
+export default function ClientDashboard() {
   const [vulnerabilities, setVulnerabilities] = useState<Vulnerability[]>([]);
   const [filter, setFilter] = useState("all");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch("/api/vulnerabilities")
       .then(res => res.json())
-      .then(data => setVulnerabilities(data))
-      .catch(err => console.error("Fetch failed:", err));
+      .then(data => {
+        setVulnerabilities(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Fetch failed:", err);
+        setLoading(false);
+      });
   }, []);
 
   const filteredVulns = filter === "all"
@@ -40,6 +49,20 @@ export default function ClientDashboard() { // Remove initialVulns prop
     if (severity >= 4) return "default";
     return "secondary";
   };
+
+  if (loading) {
+    return (
+      <div className="space-y-4 p-4">
+        <Skeleton className="h-10 w-[180px]" /> {/* Select placeholder */}
+        <div className="space-y-2">
+          <Skeleton className="h-8 w-full" /> {/* Table header */}
+          {Array(5).fill(0).map((_, i) => (
+            <Skeleton key={i} className="h-10 w-full" /> /* Table rows */
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
