@@ -3,6 +3,8 @@ import ClientDashboard from "./ClientDashboard";
 
 const prisma = new PrismaClient();
 
+export const dynamic = "force-dynamic";
+
 export default async function Dashboard() {
   const vulnerabilities = await prisma.vulnerability.findMany();
   return (
