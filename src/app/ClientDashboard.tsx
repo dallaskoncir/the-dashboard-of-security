@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Vulnerability } from "./page";
 import {
   Table,
@@ -19,12 +19,20 @@ import {
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 
-export default function ClientDashboard({ initialVulns }: { initialVulns: Vulnerability[] }) {
+export default function ClientDashboard() { // Remove initialVulns prop
+  const [vulnerabilities, setVulnerabilities] = useState<Vulnerability[]>([]);
   const [filter, setFilter] = useState("all");
 
+  useEffect(() => {
+    fetch("/api/vulnerabilities")
+      .then(res => res.json())
+      .then(data => setVulnerabilities(data))
+      .catch(err => console.error("Fetch failed:", err));
+  }, []);
+
   const filteredVulns = filter === "all"
-    ? initialVulns
-    : initialVulns.filter(v => v.status === filter);
+    ? vulnerabilities
+    : vulnerabilities.filter(v => v.status === filter);
 
   const getSeverityVariant = (severity: number) => {
     if (severity >= 8) return "destructive";
