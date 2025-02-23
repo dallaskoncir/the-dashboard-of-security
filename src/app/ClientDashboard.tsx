@@ -17,6 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
 
 export default function ClientDashboard({ initialVulns }: { initialVulns: Vulnerability[] }) {
   const [filter, setFilter] = useState("all");
@@ -24,6 +25,13 @@ export default function ClientDashboard({ initialVulns }: { initialVulns: Vulner
   const filteredVulns = filter === "all"
     ? initialVulns
     : initialVulns.filter(v => v.status === filter);
+
+  const getSeverityVariant = (severity: number) => {
+    if (severity >= 8) return "destructive";
+    if (severity >= 6) return "warning";
+    if (severity >= 4) return "default";
+    return "secondary";
+  };
 
   return (
     <div>
@@ -53,7 +61,11 @@ export default function ClientDashboard({ initialVulns }: { initialVulns: Vulner
             <TableRow key={v.id}>
               <TableCell>{v.type}</TableCell>
               <TableCell>{v.description}</TableCell>
-              <TableCell>{v.severity}</TableCell>
+              <TableCell>
+                <Badge variant={getSeverityVariant(v.severity)}>
+                  {v.severity}
+                </Badge>
+              </TableCell>
               <TableCell>{v.status}</TableCell>
             </TableRow>
           ))}
