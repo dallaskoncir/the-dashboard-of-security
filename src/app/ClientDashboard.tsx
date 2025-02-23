@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { Vulnerability } from "./page";
-
-
 import { TableWidget } from "@/components/widgets/TableWidget";
 import { SeverityBreakdownWidget } from "@/components/widgets/SeverityBreakdownWidget";
 import { StatusSummaryWidget } from "@/components/widgets/StatusSummaryWidget";

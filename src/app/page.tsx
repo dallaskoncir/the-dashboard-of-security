@@ -1,12 +1,7 @@
 import ClientDashboard from "./ClientDashboard";
 
-export default async function Dashboard() {
-  return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Cybersecurity Dashboard</h1>
-      <ClientDashboard />
-    </div>
-  );
+export default function Dashboard() {
+  return <ClientDashboard />;
 }
 
 export interface Vulnerability {
@@ -15,7 +10,7 @@ export interface Vulnerability {
   severity: number;
   description: string;
   affectedSystem: string;
-  timestamp: Date;
+  timestamp: string;
   status: string;
   region: string;
   category: string;
