@@ -17,4 +17,6 @@ export interface Vulnerability {
   affectedSystem: string;
   timestamp: Date;
   status: string;
+  region: string;
+  category: string;
 }

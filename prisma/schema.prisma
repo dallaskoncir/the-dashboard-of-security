@@ -14,11 +14,13 @@ datasource db {
 }
 
 model Vulnerability {
-  id            String   @id
-  type          String
-  severity      Int
-  description   String
+  id             String   @id
+  type           String
+  severity       Int
+  description    String
   affectedSystem String
-  timestamp     DateTime
-  status        String
+  timestamp      DateTime
+  status         String
+  region         String
+  category       String
 }
