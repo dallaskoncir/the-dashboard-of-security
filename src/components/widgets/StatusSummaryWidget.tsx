@@ -10,7 +10,7 @@ type StatusSummaryWidgetProps = {
 export const StatusSummaryWidget = ({ loading, vulnerabilities }: StatusSummaryWidgetProps) => {
   if (loading) {
     return (
-      <Card>
+      <Card className="min-h-[400px]">
         <CardHeader>
           <Skeleton className="h-6 w-36" />
         </CardHeader>
@@ -28,7 +28,7 @@ export const StatusSummaryWidget = ({ loading, vulnerabilities }: StatusSummaryW
   const total = vulnerabilities.length;
 
   return (
-    <Card>
+    <Card className="min-h-[400px]">
       <CardHeader>
         <CardTitle>Status Summary</CardTitle>
       </CardHeader>

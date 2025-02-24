@@ -10,7 +10,7 @@ type SeverityBreakdownWidgetProps = {
 export const SeverityBreakdownWidget = ({ loading, vulnerabilities }: SeverityBreakdownWidgetProps) => {
   if (loading) {
     return (
-      <Card>
+      <Card className="min-h-[400px]">
         <CardHeader>
           <Skeleton className="h-6 w-40" />
         </CardHeader>
@@ -28,7 +28,7 @@ export const SeverityBreakdownWidget = ({ loading, vulnerabilities }: SeverityBr
   const total = vulnerabilities.length;
 
   return (
-    <Card>
+    <Card className="min-h-[400px]">
       <CardHeader>
         <CardTitle>Severity Distribution</CardTitle>
       </CardHeader>

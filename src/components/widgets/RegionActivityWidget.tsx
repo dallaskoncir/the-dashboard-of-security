@@ -27,7 +27,7 @@ export const RegionActivityWidget = ({ loading, vulnerabilities }: RegionActivit
 
   if (loading) {
     return (
-      <Card>
+      <Card className="min-h-[400px]">
         <CardHeader>
           <Skeleton className="h-6 w-36" />
         </CardHeader>
@@ -42,7 +42,7 @@ export const RegionActivityWidget = ({ loading, vulnerabilities }: RegionActivit
   }
 
   return (
-    <Card>
+    <Card className="min-h-[400px]">
       <CardHeader>
         <CardTitle>Region Activity</CardTitle>
       </CardHeader>

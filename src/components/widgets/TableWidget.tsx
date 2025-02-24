@@ -40,7 +40,7 @@ export const TableWidget = ({ loading, vulnerabilities }: TableWidgetProps) => {
 
   if (loading) {
     return (
-      <Card>
+      <Card className="min-h-[400px]">
         <CardHeader>
           <Skeleton className="h-6 w-48" />
         </CardHeader>
@@ -54,7 +54,7 @@ export const TableWidget = ({ loading, vulnerabilities }: TableWidgetProps) => {
     );
   }
   return (
-    <Card>
+    <Card className="min-h-[400px]">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle>Vulnerability Details</CardTitle>
         <Select onValueChange={setFilter} defaultValue="all">
